@@ -64,6 +64,8 @@ public class BluetoothChat extends Activity {
 
     public int counter = 0;
 
+    private TextView mReceiver = null;
+
     private List messageList = new ArrayList();
 
     @Override
@@ -71,6 +73,7 @@ public class BluetoothChat extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main_activity);
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -80,6 +83,8 @@ public class BluetoothChat extends Activity {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+            mReceiver = (TextView) findViewById(R.id.receiver);
 
         // If the adapter is null, then Bluetooth is not supported
         if (mBluetoothAdapter == null) {
@@ -207,6 +212,7 @@ public class BluetoothChat extends Activity {
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     mAdapter.notifyDataSetChanged();
                     messageList.add(new androidRecyclerView.Message(counter++, readMessage, mConnectedDeviceName));
+                    mReceiver.setText(readMessage);
                     break;
                 case MESSAGE_DEVICE_NAME:
                     // save the connected device's name
