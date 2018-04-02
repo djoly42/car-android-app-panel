@@ -5,15 +5,13 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,7 +58,7 @@ public class BluetoothChat extends Activity {
     // Member object for the chat services
     private BluetoothChatService mChatService = null;
 
-    private RecyclerView mRecyclerView;
+    //private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private MessageAdapter mAdapter;
 
@@ -78,13 +76,13 @@ public class BluetoothChat extends Activity {
         setContentView(R.layout.main_activity);
 
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+       // mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        //mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new MessageAdapter(getBaseContext(), messageList);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+       // mRecyclerView.setAdapter(mAdapter);
+        //mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         mReceiver = (TextView) findViewById(R.id.receiver);
@@ -220,24 +218,38 @@ public class BluetoothChat extends Activity {
                     switch (readMessage){
                         case "30":
                             mImageReceiver.setImageResource(R.drawable.p30);
+                            MediaPlayer mPlayer = MediaPlayer.create(BluetoothChat.this, R.raw.s30);
+                            mPlayer.start();
                             break;
                         case "50":
                             mImageReceiver.setImageResource(R.drawable.p50);
+                            mPlayer = MediaPlayer.create(BluetoothChat.this, R.raw.s50);
+                            mPlayer.start();
                             break;
                         case "70":
                             mImageReceiver.setImageResource(R.drawable.p70);
+                            //mPlayer = MediaPlayer.create(BluetoothChat.this, R.raw.s50);
+                            //mPlayer.start();
                             break;
                         case "80":
                             mImageReceiver.setImageResource(R.drawable.p80);
+                            mPlayer = MediaPlayer.create(BluetoothChat.this, R.raw.s80);
+                            mPlayer.start();
                             break;
                         case "90":
                             mImageReceiver.setImageResource(R.drawable.p90);
+                            mPlayer = MediaPlayer.create(BluetoothChat.this, R.raw.s90);
+                            mPlayer.start();
                             break;
                         case "110":
                             mImageReceiver.setImageResource(R.drawable.p110);
+                            mPlayer = MediaPlayer.create(BluetoothChat.this, R.raw.s110);
+                            mPlayer.start();
                             break;
                         case "130":
                             mImageReceiver.setImageResource(R.drawable.p130);
+                            mPlayer = MediaPlayer.create(BluetoothChat.this, R.raw.s130);
+                            mPlayer.start();
                             break;
                         case "69":
                             mImageReceiver.setImageResource(R.drawable.p69);
