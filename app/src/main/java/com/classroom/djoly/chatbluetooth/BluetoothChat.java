@@ -1,5 +1,6 @@
 package com.classroom.djoly.chatbluetooth;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -16,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +67,7 @@ public class BluetoothChat extends Activity {
     public int counter = 0;
 
     private TextView mReceiver = null;
+    private ImageView mImageReceiver = null;
 
     private List messageList = new ArrayList();
 
@@ -84,8 +87,8 @@ public class BluetoothChat extends Activity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-            mReceiver = (TextView) findViewById(R.id.receiver);
-
+        mReceiver = (TextView) findViewById(R.id.receiver);
+        mImageReceiver = (ImageView) findViewById(R.id.imageReceiver);
         // If the adapter is null, then Bluetooth is not supported
         if (mBluetoothAdapter == null) {
             Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
@@ -195,6 +198,7 @@ public class BluetoothChat extends Activity {
             };
 
     // The Handler that gets information back from the BluetoothChatService
+    @SuppressLint("HandlerLeak")
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -213,6 +217,36 @@ public class BluetoothChat extends Activity {
                     mAdapter.notifyDataSetChanged();
                     messageList.add(new androidRecyclerView.Message(counter++, readMessage, mConnectedDeviceName));
                     mReceiver.setText(readMessage);
+                    switch (readMessage){
+                        case "30":
+                            mImageReceiver.setImageResource(R.drawable.p30);
+                            break;
+                        case "50":
+                            mImageReceiver.setImageResource(R.drawable.p50);
+                            break;
+                        case "70":
+                            mImageReceiver.setImageResource(R.drawable.p70);
+                            break;
+                        case "80":
+                            mImageReceiver.setImageResource(R.drawable.p80);
+                            break;
+                        case "90":
+                            mImageReceiver.setImageResource(R.drawable.p90);
+                            break;
+                        case "110":
+                            mImageReceiver.setImageResource(R.drawable.p110);
+                            break;
+                        case "130":
+                            mImageReceiver.setImageResource(R.drawable.p130);
+                            break;
+                        case "69":
+                            mImageReceiver.setImageResource(R.drawable.p69);
+                            break;
+                        default:
+                            mImageReceiver.setImageResource(R.drawable.ic_launcher_foreground);
+                            break;
+                    }
+
                     break;
                 case MESSAGE_DEVICE_NAME:
                     // save the connected device's name
@@ -227,6 +261,39 @@ public class BluetoothChat extends Activity {
             }
         }
     };
+
+    private void setImage(String readMessage) {
+        switch (readMessage){
+            case "30":
+                mImageReceiver.setImageResource(R.drawable.p30);
+                break;
+            case "50":
+                mImageReceiver.setImageResource(R.drawable.p50);
+                break;
+            case "70":
+                mImageReceiver.setImageResource(R.drawable.p70);
+                break;
+            case "80":
+                mImageReceiver.setImageResource(R.drawable.p80);
+                break;
+            case "90":
+                mImageReceiver.setImageResource(R.drawable.p90);
+                break;
+            case "110":
+                mImageReceiver.setImageResource(R.drawable.p110);
+                break;
+            case "130":
+                mImageReceiver.setImageResource(R.drawable.p130);
+                break;
+            case "69":
+                mImageReceiver.setImageResource(R.drawable.p69);
+                break;
+            default:
+                mImageReceiver.setImageResource(R.drawable.ic_launcher_foreground);
+                break;
+        }
+
+    }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
