@@ -1,6 +1,5 @@
 package androidRecyclerView;
 
-import android.app.Notification;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 //import com.javacodegeeks.R;
 
-import com.classroom.djoly.chatbluetooth.R;
+import com.classroom.djoly.controlpanel.R;
 
 import java.util.List;
 

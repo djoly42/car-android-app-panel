@@ -1,4 +1,4 @@
-package com.classroom.djoly.chatbluetooth;
+package com.classroom.djoly.controlpanel;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

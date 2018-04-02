@@ -1,4 +1,4 @@
-package com.classroom.djoly.chatbluetooth;
+package com.classroom.djoly.controlpanel;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;

@@ -1,4 +1,4 @@
-package com.classroom.djoly.chatbluetooth;
+package com.classroom.djoly.controlpanel;
 
 import org.junit.Test;
 
