@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -86,6 +87,7 @@ public class BluetoothChat extends Activity {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         mReceiver = (TextView) findViewById(R.id.receiver);
+
         mImageReceiver = (ImageView) findViewById(R.id.imageReceiver);
         // If the adapter is null, then Bluetooth is not supported
         if (mBluetoothAdapter == null) {

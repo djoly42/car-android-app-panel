@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+
     android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
@@ -24,8 +26,13 @@
     <TextView
         android:id="@+id/receiver"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:text="test"
+        android:textSize="100dp"
+        android:textColor="@color/colorOrange"
+        android:background="@color/colorBlack"
+        android:fontFamily="@font/ostrich_regular"
+        android:gravity="center"
         />
 
     <!--LinearLayout
